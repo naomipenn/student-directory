@@ -29,7 +29,7 @@ def print(students)
 end
 
 def print_footer(students)
-  puts "Overall, we have #{names.count} great students"
+  puts "Overall, we have #{students.length} great students"
 end
 #nothing happens until we call the method
 students = input_students
