@@ -23,10 +23,16 @@ puts "-------------"
 end
 
 def print(students)
-  students.each.with_index(1) do |student, index|
-    puts "#{index} #{student[:name]} (#{student[:cohort]} cohort)" if student[:name].length < 12
+  i=0
+  while i < students.length
+        student = students[i]
+      puts "#{i} #{student[:name]} (#{student[:cohort]} cohort)"
+      i += 1
+    end
+    #students.each.with_index(1) do |student, index|
+    #puts "#{index} #{student[:name]} (#{student[:cohort]} cohort)" if student[:name].length < 12
+    #end
   end
-end
 
 def print_footer(students)
   puts "Overall, we have #{students.length} great students"
