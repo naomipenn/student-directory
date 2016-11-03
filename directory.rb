@@ -8,15 +8,15 @@ def input_students
           while add_student_answer == "yes"
            # get another name from the user
            print "Please enter the student's name \n".center 150
-           name = gets.chomp
+           name = gets.delete("\n")
            print "Which cohort do they belong to? \n".center 150
-           cohort = gets.chomp
+           cohort = gets.delete("\n")
            print "Which country are they from? \n".center 150
-           country = gets.chomp
+           country = gets.delete("\n")
            print "What is their main hobby? \n".center 150
-           hobby = gets.chomp
+           hobby = gets.delete("\n")
            print "Would you like to add a student? (Answer yes or no)\n".center 150
-           add_student_answer = gets.chomp
+           add_student_answer = gets.delete("\n")
 
            #add the student hash to the array
            students << {:name => name, :cohort => cohort, :country => country, :hobby => hobby}
