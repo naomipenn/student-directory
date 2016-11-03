@@ -1,38 +1,40 @@
+# Ask for info on students
 def input_students
-  puts "Please enter the names of the students"
-  puts "To finish, just hit return twice"
-  # create an empty array
-  students = []
-  # get the first name
-  name = gets.chomp
-  # while the name is not empty, repeat the code
-  while !name.empty? do
-    # add the student hash to the array
-    students << {name: name, cohort: :november}
-    puts "Now we have #{students.count} students"
-    # get another name from the user
-    name = gets.chomp
+    print "Would you like to add a student? (Answer yes or no) \n"
+    add_student_answer = gets.chomp
+    # create an empty array
+    students = []
+          # while the name is not empty, repeat this code
+          while add_student_answer == "yes"
+           # get another name from the user
+           print "Please enter the student's name \n"
+           name = gets.chomp
+           print "Which cohort do they belong to? \n"
+           cohort = gets.chomp
+           print "Which country are they from? \n"
+           country = gets.chomp
+           print "What is their main hobby? \n"
+           hobby = gets.chomp
+           print "Would you like to add a student? (Answer yes or no)\n"
+           add_student_answer = gets.chomp
+
+           #add the student hash to the array
+           students << {:name => name, :cohort => cohort, :country => country, :hobby => hobby}
+        end
+ #return the array of students
+ students
+end
+
+def print_students(students)
+  students.each.with_index(1) do |student, index|
+    print "#{index} #{student[:name]}, #{student[:cohort]} cohort, from #{student[:country]}, enjoys #{student[:hobby]} \n"
   end
-  # return the array of students
-  students
 end
 
 def print_header
-puts "The students of my cohort at Makers Academy"
-puts "-------------"
+  puts "The students of my cohort at Makers Academy"
+  puts "-------------"
 end
-
-def print(students)
-  i=0
-  while i < students.length
-        student = students[i]
-      puts "#{i} #{student[:name]} (#{student[:cohort]} cohort)"
-      i += 1
-    end
-    #students.each.with_index(1) do |student, index|
-    #puts "#{index} #{student[:name]} (#{student[:cohort]} cohort)" if student[:name].length < 12
-    #end
-  end
 
 def print_footer(students)
   puts "Overall, we have #{students.length} great students"
@@ -40,5 +42,5 @@ end
 #nothing happens until we call the method
 students = input_students
 print_header
-print(students)
+print_students(students)
 print_footer(students)
